@@ -99,18 +99,18 @@ public class UserController {
     @RequestMapping(value = "/person", method = RequestMethod.POST)  
     public @ResponseBody  
     Object addPerson(User person) {  
-        logger.info("ע����Ա��Ϣ�ɹ�id=" + person.getId());  
+        logger.info(person.getId());  
         JSONObject jsonObject = new JSONObject();  
-        jsonObject.put("msg", "ע����Ա��Ϣ�ɹ�");  
+        jsonObject.put("msg", "xiao");  
         return jsonObject;  
     }  
   
     @RequestMapping(value = "/person", method = RequestMethod.PUT)  
     public @ResponseBody  
     Object updatePerson(User person) {  
-        logger.info("������Ա��Ϣid=" + person.getId());  
+        logger.info("id=" + person.getId());  
         JSONObject jsonObject = new JSONObject();  
-        jsonObject.put("msg", "������Ա��Ϣ�ɹ�");  
+        jsonObject.put("msg", "xiao");  
         return jsonObject;  
     }  
   
@@ -118,7 +118,7 @@ public class UserController {
     public @ResponseBody  
     List<User> listPerson(@RequestParam(value = "name", required = false, defaultValue = "") String name) {  
   
-        logger.info("��ѯ��Աname like " + name);  
+        logger.info("name like " + name);  
         List<User> lstPersons = new ArrayList<User>();  
   
         User person = new User();  
