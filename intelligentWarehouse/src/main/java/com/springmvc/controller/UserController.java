@@ -50,6 +50,7 @@ public class UserController {
     ModelAndView index() {  
     	ModelAndView modelAndView=new ModelAndView();
     	modelAndView.setViewName("/warehouse");
+    
         return modelAndView;  
        
     }   
@@ -63,7 +64,17 @@ public class UserController {
        
     }  
     
-    @RequestMapping(value = "/say/{msg}", produces = "application/json;charset=UTF-8")  
+    @RequestMapping(value = "/ajaxtest", produces = "text/plain;charset=UTF-8")  
+    public @ResponseBody  
+    ModelAndView ajaxtest() {  
+    	ModelAndView modelAndView=new ModelAndView();
+    	modelAndView.setViewName("/ajaxtest");
+        return modelAndView;  
+       
+    } 
+    
+    
+    @RequestMapping(value = "/say/{msg}",  method = RequestMethod.GET,produces = "application/json;charset=UTF-8")  
     public @ResponseBody  
     String say(@PathVariable(value = "msg") String msg) {  
         return "{\"msg\":\"you say:'" + msg + "'\"}";  
