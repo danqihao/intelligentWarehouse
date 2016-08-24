@@ -1,10 +1,8 @@
 package com.springmvc.controller;
 import java.util.ArrayList;  
-import java.util.List;  
-  
+import java.util.List;
 
-
-
+import javax.annotation.Resource;
 
 import net.sf.json.JSONObject;
   
@@ -21,14 +19,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.springmvc.model.User;
+import com.springmvc.service.UserService;
 
-//import com.springmvc.model.User;
  
 @Controller
 @RequestMapping("/")
 public class UserController {
  
-	
+	@Resource
+	private UserService userService ;
     private static final Logger logger = Logger.getLogger(UserController.class);  
   
 //    @RequestMapping(value = "/hello", produces = "text/plain;charset=UTF-8")  
@@ -73,7 +72,16 @@ public class UserController {
        
     } 
     
+    @RequestMapping(value="/getAll")  	
+    public @ResponseBody
+    ModelAndView getAll(){		
+		ModelAndView modelAndView = new ModelAndView("getAll"); 		
+		List<User> user = userService.getAll();
+		modelAndView.addObject("user", user);	    
+        return modelAndView;
+	}
     
+   
     @RequestMapping(value = "/say/{msg}",  method = RequestMethod.GET,produces = "application/json;charset=UTF-8")  
     public @ResponseBody  
     String say(@PathVariable(value = "msg") String msg) {  

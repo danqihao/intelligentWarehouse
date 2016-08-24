@@ -1,5 +1,7 @@
 package com.springmvc.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -17,7 +19,7 @@ public interface UserDAO {
 	public User getUser(User user);
 	public int addUser(User user);
 	public int updateUser(User user);
-	public int deleteUser(String UserId);
-     
+	public int deleteUser(Integer UserId);
+	public List<User> getAll();
      
 }

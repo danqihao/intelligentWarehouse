@@ -27,6 +27,10 @@
 		</update>  
 		<delete id="deleteUser" parameterType="int">  
 		    DELETE FROM user WHERE id=#{id}  
-		</delete>  
+		</delete>
+		<!-- 查找所有 -->
+         <select id="getAll" parameterType="User" resultType="User">  
+   			 SELECT * FROM user  
+		</select>  
           
 </mapper>

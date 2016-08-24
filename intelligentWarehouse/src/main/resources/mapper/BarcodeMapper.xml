@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc.dao.BarcodeDao">
+            <!-- 插入 -->
+         <insert id="insertBarcode" parameterType="Barcode" keyProperty="id">
+             insert into barcode(barcodeId ,barcodeName, barcodeIntime,barcodeRfcode,barcode1,barcode2,barcode3,barcode4,barcode5,barcode6)
+         values(#{barcodeId},#{barcodeName},#{barcodeIntime},#{barcodeRfcode},#{barcode1},#{barcode2},#{barcode3},#{barcode4},#{barcode5},#{barcode6})
+         </insert>
+          <!-- 查找 -->
+         <select id="getBarcode" parameterType="Barcode" resultType="Barcode">  
+   			 SELECT * FROM barcode WHERE barcodeId=#{barcodeId}   
+		</select>
+		<!-- 添加 -->  
+		<insert id="addBarcode" parameterType="Barcode" flushCache="true">  
+		   insert into barcode(barcodeId ,barcodeName, barcodeIntime,barcodeRfcode,barcode1,barcode2,barcode3,barcode4,barcode5,barcode6)
+         values(#{barcodeId},#{barcodeName},#{barcodeIntime},#{barcodeRfcode},#{barcode1},#{barcode2},#{barcode3},#{barcode4},#{barcode5},#{barcode6})
+		</insert>
+		 <!-- 更新 -->  
+		<update id="updateBarcode" parameterType="Barcode">  
+		    UPDATE barcode SET barcodeName=#{barcodeName} ,barcodeIntime=#{barcodeIntime} ,barcodeRfcode=#{barcodeRfcode} ,barcode1=#{barcode1},
+		     barcode2=#{barcode2} ,barcode3=#{barcode3} ,barcode4=#{barcode4} ,barcode5=#{barcode5} ,barcode6=#{barcode6} WHERE no=#{barcodeId}  
+		</update> 
+		 <!-- 删除 --> 
+		<delete id="deleteBarcode" parameterType="Barcode">  
+		    DELETE FROM barcode WHERE barcodeId=#{barcodeId}  
+		</delete>  
+          <!-- 查找所有 -->
+         <select id="getAllBarcode"   parameterType="Barcode" resultType="Barcode">  
+   			 SELECT * FROM barcode  
+		</select>
+</mapper>
