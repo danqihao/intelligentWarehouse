@@ -1,64 +1,10 @@
-
 <html>
 <head>
-
+<script src="js/jquery.js"></script>
 <title>所有条码</title>
-<style type="text/css">
-body {
-	background-color: rgba(255, 229, 255, 0.8);
-	margin: 2px auto;
-	position: relative;
-}
 
-.box {
-	margin: 0px auto;
-	width: 1024px;
-}
-
-.box h2 {
-	margin: 20px auto;
-	text-align: center;
-}
-
-.top {
-	margin: 0px auto;
-	width: 100%;
-}
-
-.top a {
-	display: bolck;
-	width: 150px;
-	float: right;
-}
-
-.top span {
-	display: bolck;
-	width: 150px;
-	float: left;
-}
-
-.contenter {
-	margin: 0px auto;
-	width: 100%;
-}
-
-.contenter  table {
-	width: 100%;
-	celspacing: 0;
-	border-collapse: collapse;
-}
-
-.contenter table td {
-	height: 30px;
-}
-
-.footer {
-	float: right;
-}
-</style>
 </head>
 <body>
-
 
 
 <p>${allBarcode[0].barcodeId}</p>
@@ -71,61 +17,31 @@ body {
 <p>${allBarcode[0].barcode4}</p>
 <p>${allBarcode[0].barcode5}</p>
 <p>${allBarcode[0].barcode6}</p>
-
 <script>
 
-// document.write("<p>"+${allBarcode[0].barcodeId}+"</p>");
-// //document.write("<p>"+${allBarcode[0].barcodeName}+"</p>");
-// document.write("<p>"+${allBarcode[0].barcodeIntime}+"</p>");
-// //document.write("<p>"+${allBarcode[0].barcodeRfcode}+"</p>");
-// document.write("<p>"+${allBarcode[0].barcode1}+"</p>");
-// document.write("<p>"+${allBarcode[0].barcode2}+"</p>");
-// document.write("<p>"+${allBarcode[0].barcode3}+"</p>");
-// document.write("<p>"+${allBarcode[0].barcode4}+"</p>");
-// document.write("<p>"+${allBarcode[0].barcode5}+"</p>");
-// document.write("<p>"+${allBarcode[0].barcode6}+"</p>");
 
-// $(function() {
-//         $("#btn").click(function() {
-//             $.ajax({
-//                 url : "getAllBarcode.html",
-//                 dataType : "json",
-//                 type : "get",
-//                 timeout : 5000,
-//                 success:function(json){
-//                     var list = json.barcodeList;//productList是在Action层定义的List<String>或者List<xxxVo>之类的。
-//                     for(var i in list){
-//                     	  alert(barcodeList);
-//                     }
-//                 }
-//                 error : function() {
-//                     alert("error");
-//                 }
-//             });
-//         });
-//     });
-//    }
 
 $(document).ready(function(){         
-             $("#button").click(function(){                                     
+             $(".button1").click(function(){  
                  $.ajax({    
                   type: "GET",    
-                  url: "getAllBarcode.html",    
+                  url: "getAllBarcodeList.do",    
                   data: null, 
                   success: function(barcodeList) {  
-                   var list = JSON.parse(barcodeList); 
-                   alert(barcodeList); 
-                   alert(barcodeList .length); 
-                   for(var i=0;i<list.length;i++){ 
-                   alert(list[1].value);  
+                   // var list = JSON.parse(barcodeList); 
+                   // alert(barcodeList); 
+                   // alert(barcodeList.length); 
+                   for(var i=0;i<barcodeList.length;i++){ 
+                   alert(barcodeList[i].barcodeId);  
                     
-                   } 
-                                                                                 
-                  }    
-              });
+                	} 
+                }	                                                                 
+            });
+        });
+    });           
  		
   </script>
-<button>更新</button><br/>
+<button class="button1">更新</button><br/>
 
  
 <!-- 

@@ -33,13 +33,20 @@ public class BarcodeController {
 	private BarcodeService barcodeService;
     private static final Logger logger = Logger.getLogger(BarcodeController.class);  
      
-    @RequestMapping(value="/getAllBarcode",produces = "application/json;charset=UTF-8")  	
+    @RequestMapping(value="/getAllBarcode.do",produces = "application/json;charset=UTF-8")  	
     public @ResponseBody
     ModelAndView getAllBarcode(){		
-		ModelAndView modelAndView = new ModelAndView("getAllBarcode"); 		
+		ModelAndView modelAndView = new ModelAndView(); 		
 		List<Barcode> barcodeList = barcodeService.getAllBarcode();
 		modelAndView.addObject("allBarcode", barcodeList);	    
         return modelAndView;
+	}
+    
+    @RequestMapping(value="/getAllBarcodeList.do",produces = "application/json;charset=UTF-8")  	
+    public @ResponseBody
+    List<Barcode> getAllBarcodeList(){		
+		List<Barcode> barcodeList = barcodeService.getAllBarcode();
+        return barcodeList;
 	}
     
     
