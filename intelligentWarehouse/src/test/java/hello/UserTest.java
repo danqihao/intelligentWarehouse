@@ -27,16 +27,24 @@ public class UserTest{
 	@Test
 	public void getUser(){
         User user = new User();
-        user.setUsername("肖谦-1");
-        user.setPassword("asdf");
-        System.out.println(userService.getUser(user));
+        user.setUsername("jieder");
+        user.setPassword("321");
+        
+        if(userService.getUser(user)!=null){
+        	 System.out.println("取出的值是："+userService.getUser(user));
+        }
+        else{
+        	System.out.println("没有找到该值");
+        }
+       
     }
 	
 	@Test
 	public void addUser(){
         User user = new User();
-        user.setUsername("肖谦-2");
-        user.setPassword("asdfb");
+        user.setUsername("jie");
+        user.setPassword("134");
+        
         System.out.println(userService.insertUser(user));
     }
 	
@@ -44,8 +52,9 @@ public class UserTest{
 	public void updateUser(){
         User user = new User();
         user.setId(4);
-        user.setUsername("jieker2");
+        user.setUsername("jie");
         user.setPassword("hgdhgh");
+    
         System.out.println(userService.updateUser(user));
     }
 
@@ -53,7 +62,7 @@ public class UserTest{
 	public void deleteUser(){
         User user = new User();
        
-        System.out.println(userService.deleteUser(1));
+        System.out.println(userService.deleteUser(4));
     }
 	
 	@Test
@@ -67,9 +76,9 @@ public class UserTest{
 	public void print(){
 		System.out.print("hello");
 	}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
+//	public static void main(String[] args) {
+//		// TODO Auto-generated method stub
+//
+//	}
 
 }

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/jquery.js"></script>
+<script src="js/jquery-1.9.0.min.js" type="text/javascript"></script>
+<script src="js/barcode.js" type="text/javascript"></script>
+ <link href="css/barcode.css" rel="stylesheet" type="text/css">
+<meta charset="UTF-8">
+<title>report</title>
+</head>
+<body>
+	<div class="box">
+		<h2>ERP系统report信息</h2>
+<!-- 		<button class="button1">更新</button><br/> -->
+		<div class="top">
+			<span>所有结果:</span> <a href="getAllMaterial.do" >更新数据</a>
+
+		</div>
+		<div class="contenter">
+			<table border="1">
+				<tr id="header">
+					<th>firstkey</th>
+					<th>th004</th>
+					<th>th005</th>
+					<th>th006</th>					
+					<th>tg003</th>
+					<th>goods</th>
+					<th>tg001c</th>
+					<th>ma001</th>
+					<th>ma002</th>					
+					<th>tg011</th>
+					<th>tg012</th>
+					<th>th012</th>
+					<th>th008</th>
+					<th>settlednum</th>					
+					<th>unsettlednum</th>
+					<th>unynotax</th>
+					<th>unytax</th>
+					<th>unnotax</th>
+					<th>untax</th>					
+					<th>no8</th>
+<!-- 					<th>th017</th> -->
+					<th>th055</th>
+					<th>me001</th>
+					<th>me002</th>
+					<th>tg017</th>
+					<th>tg044</th>
+					<th>tg075</th>
+					<th>no002</th>
+					<th>drilnum</th>
+					<th>asremark</th>
+					<th>remarkey</th>
+					<th>操作</th>
+					
+				</tr>
+				
+				
+					<tr id="coordinate"></tr>		
+			</table>
+		</div>
+		<div class="footer">
+			<a href="#">上一页</a> <a class="next" href="#">下一页</a>
+
+
+		</div>
+	</div>
+	
+	<script>
+
+$(document).ready(function(){         
+           // $(".button1").click(function(){  
+          $("coordinate").hide();
+            $.ajax({    
+               type: "GET",    
+               url: "getAllReportList.do",    
+               data: null, 
+               success: function(reportList) {  
+
+               for(var i=0;i<reportList.length;i++){               
+                  // alert(barcodeList[i].barcodeId);                  
+                   var text="<tr><td class='materialId' width='50px'>"
+                   +reportList[i].firstkey+"</td><td class='M001' width='150px'> "
+                   +reportList[i].th004+"</td><td class='M002' width='150px' >" 
+                   +reportList[i].th005+"</td><td class='M003' width='150px' >"
+                   +reportList[i].th006+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].tg003+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].goods+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].tg001c+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].ma001+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].ma002+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].tg011+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].tg012+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].th012+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].th008+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].settlednum+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].unsettlednum+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].unynotax+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].unytax+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].unnotax+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].untax+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].no8+"</td><td class='M003' width='150px' >" 
+                    +reportList[i].th055+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].me001+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].me002+"</td><td class='M003' width='150px' >" 
+                    +reportList[i].tg017+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].tg044+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].tg075+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].no002+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].drilnum+"</td><td class='M003' width='150px' >" 
+                   +reportList[i].dsremark+"</td><td class='M003' width='150px' >" 
+                   
+                   +reportList[i].remarkey+"</td><td class='operate' width='150px' ><a href='' onclick='openModifyBarcode();'>修改</a><br/><a href='' class='delete' onclick='deleteBarcode();'>删除</a></td></tr>"
+                                                                                  
+                   $("#coordinate").before(text);                         
+                	} 
+                }	                                                                 
+            });
+        //});
+   });           
+$(document).ready(function(){         
+    $(".delete").click(function(){  
+    	 alert("确认删除？")
+});
+ });           
+  </script>
+</body>
+</html>

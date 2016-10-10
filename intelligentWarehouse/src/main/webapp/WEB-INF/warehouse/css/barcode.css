@@ -1,0 +1,53 @@
+
+body {
+	background-color:rgba(25,25,25,0.1);
+	margin: 2px auto;
+	position: relative;
+}
+
+.box {
+	margin: 0px auto;
+	
+}
+
+.box h2 {
+	margin: 20px auto;
+	text-align: center;
+}
+
+.top {
+	margin: 0px auto;
+	width: 100%;
+}
+
+.top a {
+	display: bolck;
+	width: 150px;
+	float: right;
+}
+
+.top span {
+	display: bolck;
+	width: 150px;
+	float: left;
+}
+
+.contenter {
+	margin: 0px auto;
+	width: 100%;
+}
+
+.contenter  table {
+	width: 100%;
+	celspacing: 0;
+	border-collapse: collapse;
+}
+
+.contenter table td {
+	height: 30px;
+}
+
+.footer {
+	float: right;
+	margin-bottom:100px;
+}

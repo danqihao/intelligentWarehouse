@@ -27,7 +27,7 @@ public class BarcodeTest{
 	@Test
 	public void getBarcode(){
 		Barcode barcode = new Barcode();
-		barcode.setBarcodeId(1);
+		barcode.setBarcodeId(4);
 		
         System.out.println(barcodeService.getBarcode(barcode));
         System.out.println(barcode);

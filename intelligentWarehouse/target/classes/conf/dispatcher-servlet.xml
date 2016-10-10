@@ -19,13 +19,15 @@
     <mvc:annotation-driven />  
     <context:component-scan base-package="com.springmvc.controller" />  
     <!-- 自动扫描该路径下的所有@service -->
-   <mvc:resources mapping="/css/**" location="/WEB-INF/warehouse/css/"/>  
+   
+    <mvc:resources mapping="/css/**" location="/WEB-INF/warehouse/css/"/>  
     <mvc:resources mapping="/js/**" location="/WEB-INF/warehouse/js/"/>  
     <mvc:resources mapping="/img/**" location="/WEB-INF/warehouse/img/"/>
     <mvc:resources mapping="/font-awesome/**" location="/WEB-INF/warehouse/font-awesome/"/>
     <mvc:resources mapping="/fonts/**" location="/WEB-INF/warehouse/fonts/"/>
     <mvc:resources mapping="/less/**" location="/WEB-INF/warehouse/less/"/>
     <mvc:resources mapping="/**" location="/WEB-INF/warehouse/"/>
+
     
     
     

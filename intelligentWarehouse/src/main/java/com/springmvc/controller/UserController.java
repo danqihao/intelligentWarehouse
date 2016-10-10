@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
   
@@ -10,20 +11,27 @@ import net.sf.json.JSONObject;
 
 
 import org.apache.log4j.Logger;  
-import org.springframework.stereotype.Controller;  
-import org.springframework.web.bind.annotation.PathVariable;  
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;  
 import org.springframework.web.bind.annotation.RequestMethod;  
 import org.springframework.web.bind.annotation.RequestParam;  
-import org.springframework.web.bind.annotation.ResponseBody;  
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.springmvc.model.User;
 import com.springmvc.service.UserService;
 
+
+
  
 @Controller
 @RequestMapping("/")
+@SessionAttributes({"user","username"})
 public class UserController {
  
 	@Resource
@@ -62,7 +70,7 @@ public class UserController {
         return modelAndView;  
        
     }  
-    
+        
     @RequestMapping(value = "/ajaxtest", produces = "text/plain;charset=UTF-8")  
     public @ResponseBody  
     ModelAndView ajaxtest() {  
@@ -70,18 +78,8 @@ public class UserController {
     	modelAndView.setViewName("/ajaxtest");
         return modelAndView;  
        
-    } 
-    
-    @RequestMapping(value="/getAll")  	
-    public @ResponseBody
-    ModelAndView getAll(){		
-		ModelAndView modelAndView = new ModelAndView("getAll"); 		
-		List<User> user = userService.getAll();
-		modelAndView.addObject("user", user);	    
-        return modelAndView;
-	}
-    
-   
+    }      
+     
     @RequestMapping(value = "/say/{msg}",  method = RequestMethod.GET,produces = "application/json;charset=UTF-8")  
     public @ResponseBody  
     String say(@PathVariable(value = "msg") String msg) {  
@@ -95,14 +93,16 @@ public class UserController {
     	modelAndView.setViewName("3");
     	modelAndView.addObject("msg", "\"you say:'" + msg + "'\"");
         return modelAndView;  
-    }  
+    } 
+    
+    
   
     @RequestMapping(value = "/person/{id:\\d+}", method = RequestMethod.GET)  
     public @ResponseBody  
     User getPerson(@PathVariable("id") int id) {  
         logger.info("id=" + id);  
         User person = new User(); 
-        person.setId(id);
+        person.setId(id);      
         return person;  
     }  
   
@@ -122,7 +122,9 @@ public class UserController {
         JSONObject jsonObject = new JSONObject();  
         jsonObject.put("msg", "xiao");  
         return jsonObject;  
-    }  
+    }
+    
+  
   
     @RequestMapping(value = "/person", method = RequestMethod.PUT)  
     public @ResponseBody  
@@ -153,6 +155,65 @@ public class UserController {
         lstPersons.add(person3);  
   
         return lstPersons;  
-    }  
+    } 
+    
+//    @RequestMapping(value="/insertUser",method = RequestMethod.POST,produces = "application/json;charset=UTF-8")
+//	public @ResponseBody User requestJson(@RequestBody User user){
+//    	User user1=new User();
+//    	user1.setUsername(user.getUsername());
+//    	user1.setPassword(user.getPassword());
+//    	userService.insertUser(user);
+//		//@ResponseBody将itemsCustom转成json输出
+//		return user;
+//	}
+//    
+    @RequestMapping(value = "/personTest", produces = "text/plain;charset=UTF-8")  
+    public @ResponseBody  
+    ModelAndView personTest() {  
+    	ModelAndView modelAndView=new ModelAndView();
+    	modelAndView.setViewName("/personTest");
+        return modelAndView;  
+       
+    }
+      	    
+    @RequestMapping(value="/login",method=RequestMethod.GET)
+    public @ResponseBody  
+    ModelAndView loginGET() {  
+    	ModelAndView modelAndView=new ModelAndView();
+    	modelAndView.setViewName("/login");
+        return modelAndView;  
+       
+    }
+    
+    @RequestMapping(value="/login",method=RequestMethod.POST)
+    public String login(User user,ModelMap map) { 
+       // map.addAttribute("username", user.getUsername()); 
+        if(userService.getUser(user)!=null){
+        	return "redirect:main";
+        }     	 
+        else{
+        	return null;
+        }
+    } 
+    
+
+    
+    @RequestMapping(value = "/main", produces = "text/plain;charset=UTF-8")  
+    public @ResponseBody  
+    ModelAndView main() {  
+    	ModelAndView modelAndView=new ModelAndView();
+    	modelAndView.setViewName("/main");
+        return modelAndView;  
+       
+    } 
      
+    @RequestMapping(value="/fail")
+    public @ResponseBody  
+    ModelAndView success() {  
+    	ModelAndView modelAndView=new ModelAndView();
+    	modelAndView.setViewName("/fail");
+        return modelAndView;  
+       
+    } 
+    
 }

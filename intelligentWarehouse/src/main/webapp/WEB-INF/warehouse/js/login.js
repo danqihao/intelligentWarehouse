@@ -1,23 +1,24 @@
 ﻿
-function register()/*登录验证*/
+function loginCheck()/*登录验证*/
 {
 
 	var username=document.getElementById("u");
 
-	var pass=document.getElementById("p");
+	var password=document.getElementById("p");
 	if(username.value=="")
 	{
 		alert("请输入用户名");
 		username.focus();
 		return;
 	}
-	if(pass.value=="")
+	if(password.value=="")
 	{
 		alert("请输入密码");
 		return;
 	}
 return true;
 }
+
 $(function(){
 	
 	$('#switch_qlogin').click(function(){

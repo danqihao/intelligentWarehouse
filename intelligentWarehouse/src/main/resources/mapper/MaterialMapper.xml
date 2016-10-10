@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc.dao.MaterialDao">
+                       	
+		<!-- 查找所有 -->
+         <select id="getAll" parameterType="Material" resultType="Material">  
+   			 SELECT * FROM copth limit 0,15 
+		</select>  
+        <!--条件查询-->
+        <select id="selectByName" parameterType="Material" resultType="Material">
+              SELECT * FROM copth where th005 like '%开关%'
+        </select>
+</mapper>

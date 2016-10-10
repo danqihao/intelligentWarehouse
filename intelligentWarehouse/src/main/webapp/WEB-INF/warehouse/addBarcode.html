@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>增加数据</title>
+<script src="js/jquery.js"></script>
+<script src="js/jquery-1.9.0.min.js" type="text/javascript"></script>
+<style type="text/css">
+.contenter{
+  margin:0 auto;
+  
+  border:#aecbd4 1px solid;
+  text-align:center;
+  background:url(images/bg.gif) repeat-x;
+}
+.contenter table {
+
+	celspacing: 0;
+	border-collapse: collapse;
+}
+.contenter .key{
+width: 100px;
+	
+}
+.contenter .value{
+width: 400px;
+	
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+    <div class="contenter">
+    <form>
+        <table border="1">
+            <tr>
+                <td class="key">设备名：</td class="value"> <td><input type="text" ></td>
+            </tr>
+            <tr>
+                <td class="key">录入时间：</td> <td class="value"><input type="text" ></td>
+            </tr>
+            <tr>
+                <td class="key">RFID编号：</td> <td class="value"><input type="text" ></td>
+            </tr>
+            <tr>
+                <td class="key">条码一：</td> <td class="value"><input type="text" ></td>
+            </tr>
+            <tr>
+                <td class="key">条码一：</td> <td class="value"><input type="text" ></td>
+            </tr>
+            <tr>
+                <td class="key">条码二：</td> <td class="value"><input type="text" ></td>
+            </tr>
+            <tr>
+                <td class="key">条码三：</td> <td class="value"><input type="text" ></td>
+            </tr>
+            <tr>
+                <td class="key">条码四：</td> <td class="value"><input type="text" ></td>
+            </tr>
+            <tr>
+                <td class="key">条码五：</td> <td class="value"><input type="text" ></td>
+            </tr>
+            <tr>
+                <td class="key">条码六：</td> <td class="value"><input type="text" ></td>
+            </tr>
+            <tr>
+                <td width="50%"><input type="submit" value="确认" class="add" style="width:50px; float:right" /></td>
+               <td width="50%"> <input type="submit" value="取消" style="width:50px;" onclick="javaScript:window.close();" /></td> 
+            </tr>
+        </table>
+        </form>
+    </div>
+</div>
+<!-- <button class="add">add data</button> -->
+
+
+<input type="button" onclick="requestJson()" value="请求json，输出是json"/>
+
+<script type="text/javascript">
+
+function requestJson(){
+	var data1={"username":"jieker","password":"123"}
+	$.ajax({
+		type:'post',
+		url:'addBarcodeData',
+		contentType:'application/json;charset=utf-8',
+		//数据格式是json串
+		data:'{"barcodeName":"009e","barcodeIntime":"20160831162325","barcodeRfcode":"E2005104070B025821503612","barcode1":"00000000000000000001","barcode2":"00000000000000000002","barcode3":"00000000000000000003","barcode4":"00000000000000000004","barcode5":"00000000000000000005","barcode6":"00000000000000000006"}',
+		//data:'data1',
+		success:function(data,status){//返回json结果
+			alert("数据：" + data + "\n状态：" + status+"\n"+data.barcodeName+"\n"+data.barcodeIntime+"\n"+data.barcodeRfcode+"\n"+data.barcode1+"\n"+data.barcode2+"\n"+data.barcode3+"\n"+data.barcode4+"\n"+data.barcode5+"\n"+data.barcode6);
+		}		
+	});	
+}
+  
+     
+</script>
+
+</body>
+</html>

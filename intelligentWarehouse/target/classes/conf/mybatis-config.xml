@@ -7,6 +7,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <typeAliases>
          <typeAlias alias="User" type="com.springmvc.model.User"/>
          <typeAlias alias="Barcode" type="com.springmvc.model.Barcode"/>
+         <typeAlias alias="Material" type="com.springmvc.model.Material"/>
+         <typeAlias alias="Report" type="com.springmvc.model.Report"/>
+           
     </typeAliases>
  
     <!-- 映射map -->
