@@ -18,7 +18,7 @@ public class ReportServiceImpl implements ReportService{
 	private ReportDao reportDao;
 
 	
-	@Override
+	
 	public List<Report> getAll() {
 		
 		return reportDao.getAll();

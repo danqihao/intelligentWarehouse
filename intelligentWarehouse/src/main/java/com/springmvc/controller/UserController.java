@@ -157,24 +157,7 @@ public class UserController {
         return lstPersons;  
     } 
     
-//    @RequestMapping(value="/insertUser",method = RequestMethod.POST,produces = "application/json;charset=UTF-8")
-//	public @ResponseBody User requestJson(@RequestBody User user){
-//    	User user1=new User();
-//    	user1.setUsername(user.getUsername());
-//    	user1.setPassword(user.getPassword());
-//    	userService.insertUser(user);
-//		//@ResponseBody将itemsCustom转成json输出
-//		return user;
-//	}
-//    
-    @RequestMapping(value = "/personTest", produces = "text/plain;charset=UTF-8")  
-    public @ResponseBody  
-    ModelAndView personTest() {  
-    	ModelAndView modelAndView=new ModelAndView();
-    	modelAndView.setViewName("/personTest");
-        return modelAndView;  
-       
-    }
+   
       	    
     @RequestMapping(value="/login",method=RequestMethod.GET)
     public @ResponseBody  

@@ -47,7 +47,7 @@ public class MaterialController {
     
     @RequestMapping(value="/getAllMaterialList.do",produces = "application/json;charset=UTF-8")  	
     public @ResponseBody
-    List<Material> getAllMaterialList(String th005){
+    List<Material> getAllMaterialList(){
     	//DbContextHolder.setDbType("dataSource2");
 		List<Material> materialList = materialService.getAll();
 
@@ -66,9 +66,10 @@ public class MaterialController {
     @RequestMapping(value="/ErpQuery.do",method=RequestMethod.POST,produces = "application/json;charset=UTF-8")  	
     public @ResponseBody
     List<Material> erpQueryPost(String th005){
-    	//Material material=new Material();
+    	
     	
     	List<Material> materialList = materialService.selectByName(th005);
+    	System.out.println(materialList);
 		return materialList;
 	}
      

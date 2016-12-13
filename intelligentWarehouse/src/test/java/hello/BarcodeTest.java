@@ -30,7 +30,7 @@ public class BarcodeTest{
 		barcode.setBarcodeId(4);
 		
         System.out.println(barcodeService.getBarcode(barcode));
-        System.out.println(barcode);
+       
     }
 	
 	@Test

@@ -42,7 +42,7 @@ public class MaterialTest{
 	public void selectByName(){//查询所有记录
 		//Material material=new Material();
 		
-		List<Material> materialList = materialService.selectByName("开关");
+		List<Material> materialList = materialService.selectByName("套膜机");
 		System.out.println(materialList);
 	}
 

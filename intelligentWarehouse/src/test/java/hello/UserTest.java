@@ -44,8 +44,8 @@ public class UserTest{
         User user = new User();
         user.setUsername("jie");
         user.setPassword("134");
-        
-        System.out.println(userService.insertUser(user));
+        userService.insertUser(user);
+        System.out.println();
     }
 	
 	@Test

@@ -17,7 +17,7 @@ public class MaterialServiceImpl implements MaterialService{
 
 	
 
-	@Override
+	
 	public List<Material> getAll() {
 		
 		return materialDao.getAll();
@@ -25,7 +25,7 @@ public class MaterialServiceImpl implements MaterialService{
 
 
 
-	@Override
+	
 	public List<Material> selectByName(String th005) {
 		// TODO Auto-generated method stub
 		return materialDao.selectByName(th005);

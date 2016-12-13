@@ -37,7 +37,7 @@ h1{
 	margin:80px auto 100px auto;
 	text-align:center;
 	color:#fff;
-	margin-left:470px;
+	
 	font-size:35px;
 	font-weight: bold;
 	text-shadow: 0px 1px 1px #555;
@@ -192,6 +192,7 @@ h1{
 	margin-top:10px;margin-bottom:5px;
 	text-align:center;
 	font-family:"Hiragino Sans GB", "Microsoft Yahei";
+	color:red;
 }
 
 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc.dao.MaDao">
+     <select id="getAll" parameterType="Ma" resultType="Ma">
+       
+       select * from ma
+     </select>
+   
+         
+        
+          <!-- 查找 -->
+         <select id="getMa" parameterType="Ma" resultType="Ma">  
+   			 SELECT * FROM ma WHERE m001=#{m001}   
+		</select>
+		<!-- 添加 -->  
+		<insert id="addMa" parameterType="Ma" flushCache="true">  
+		   insert into ma(m001 ,m002, m003)
+         values(#{m001},#{m002},#{m003})
+		</insert>
+		 <!-- 更新 -->  
+		<update id="updateMa" parameterType="Ma">  
+		    UPDATE ma SET m001=#{m001} ,m002=#{m002} ,m003=#{m003} 
+		</update> 
+		 <!-- 删除 --> 
+		<delete id="deleteMa" parameterType="Barcode">  
+		    DELETE FROM ma   
+		</delete>  
+</mapper>

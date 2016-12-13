@@ -9,6 +9,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
          <typeAlias alias="Barcode" type="com.springmvc.model.Barcode"/>
          <typeAlias alias="Material" type="com.springmvc.model.Material"/>
          <typeAlias alias="Report" type="com.springmvc.model.Report"/>
+         <typeAlias alias="Ma" type="com.springmvc.model.Ma"/>
            
     </typeAliases>
  
